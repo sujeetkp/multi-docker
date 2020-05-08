@@ -4,7 +4,7 @@ services:
     - docker
 
 before_install:
-    - docker build -f Dockerfile.dev -t sujeetkp/react-test ./client
+    - docker build -f ./client/Dockerfile.dev -t sujeetkp/react-test ./client
 
 script:
     - docker run -e CI=true sujeetkp/react-test npm run test
