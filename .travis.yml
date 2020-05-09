@@ -24,5 +24,16 @@ after_success:
     - docker push sujeetkp/multi-nginx
     - docker push sujeetkp/multi-worker
 
-
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "ap-south-1"
+    app: "multi-docker"
+    env: "MultiDocker-env"
+    bucket_name: "elasticbeanstalk-ap-south-1-211307162405"
+    bucket_path: "multi-docker"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
     
